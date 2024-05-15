@@ -1,4 +1,6 @@
+package com.example.imagecamera
 import android.Manifest
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
@@ -17,8 +19,11 @@ import com.example.imagecamera.R
 
 import com.example.imagecamera.ml.Model
 import org.tensorflow.lite.DataType
+import org.tensorflow.lite.support.image.TensorImage
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
+import java.io.BufferedReader
 import java.io.IOException
+import java.io.InputStreamReader
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
 
@@ -30,9 +35,22 @@ class MainActivity : AppCompatActivity() {
     private lateinit var result: TextView
     private val imageSize = 32
 
+    lateinit var labels_list: List<String>
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        //Load labels list from labels_mobilenet_dataset file in assets folder
+        try{
+            val labels_reader= BufferedReader(InputStreamReader(application.assets.open(("dataset.txt"))))
+            labels_list= labels_reader.readLines()
+
+            Log.d(TAG, "labels list="+labels_list.get(0))
+        }catch(e: Exception){
+            Log.d(TAG, "exception in reading labels from file: "+e)
+        }
 
         camera = findViewById(R.id.button)
         gallery = findViewById(R.id.button2)
@@ -54,39 +72,56 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun classifyImage(image: Bitmap) {
-        try {
-            val model = Model.newInstance(applicationContext)
+        //paste the tflite model code here
+        try{
+            val model = Model.newInstance(this)
 
-            val inputFeature0 = TensorBuffer.createFixedSize(intArrayOf(1, imageSize, imageSize, 3), DataType.FLOAT32)
-            val byteBuffer = ByteBuffer.allocateDirect(4 * imageSize * imageSize * 3)
-            byteBuffer.order(ByteOrder.nativeOrder())
+            // Creates inputs for reference.
+            val inputFeature0 = TensorBuffer.createFixedSize(intArrayOf(1, 32, 32, 3), DataType.UINT8)
 
-            val intValues = IntArray(imageSize * imageSize)
-            image.getPixels(intValues, 0, image.width, 0, 0, image.width, image.height)
-            var pixel = 0
-            for (i in 0 until imageSize) {
-                for (j in 0 until imageSize) {
-                    val intval = intValues[pixel++] // RGB
-                    byteBuffer.putFloat(((intval shr 16) and 0xFF) * (1f / 1))
-                    byteBuffer.putFloat(((intval shr 8) and 0xFF) * (1f / 1))
-                    byteBuffer.putFloat((intval and 0xFF) * (1f / 1))
-                }
-            }
-
+            //create bytebuffer image from the resized bitmap
+            var byteBuffer= TensorImage.fromBitmap(image).buffer
             inputFeature0.loadBuffer(byteBuffer)
 
+            // Runs model inference and gets result.
             val outputs = model.process(inputFeature0)
             val outputFeature0 = outputs.outputFeature0AsTensorBuffer
 
-            val confidences = outputFeature0.floatArray
-            val (maxConfidence, maxPos) = confidences.withIndex().maxByOrNull { it.value } ?: Pair(0f, -1)
-            val classes = arrayOf("Apple", "Banana", "Orange")
-            result.text = classes[maxPos]
+            //show output in textView of layout file
+            //outputFeature0 array has probabilities of 1000 values
+            var maxProbabilityIndex:Int= getMaxProbabilityIndex(outputFeature0.floatArray)
+            Log.d(TAG, "returned maxProbabilityIndex="+maxProbabilityIndex)
 
+            var resulttxt= "item name: "+labels_list[maxProbabilityIndex]+", probability: "+outputFeature0.floatArray[maxProbabilityIndex]
+            result.text= resulttxt
+
+
+
+            // Releases model resources if no longer used.
             model.close()
-        } catch (e: IOException) {
-            // Handle exception
+        }catch(e: Exception){
+            Log.d(TAG, "exception in using model for predictions: "+e)
         }
+    }
+
+    fun getMaxProbabilityIndex(arr: FloatArray): Int {
+        var max_val: Float= 0.0F
+        var max_val_index:Int= -1
+        var items_count_max_probalities:Int=0
+
+        for(i in 0..4) {
+            //find max probability item index
+            if(arr[i]>max_val) {
+                max_val_index=i
+                max_val=arr[i]
+            }
+            //find no. of items with and above 100 probability
+            if(arr[i]>=100){
+                items_count_max_probalities++
+            }
+        }
+        Log.d(TAG, "no. of items with probability >=100 are "+items_count_max_probalities)
+        return max_val_index
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

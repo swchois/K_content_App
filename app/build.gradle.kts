@@ -46,13 +46,18 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+
     implementation(libs.tensorflow.lite.support)
     implementation(libs.tensorflow.lite.metadata)
     implementation(libs.play.services.tflite.acceleration.service)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    implementation ("org.tensorflow:tensorflow-lite-support:0.1.0-rc1")
-    implementation ("org.tensorflow:tensorflow-lite-metadata:0.1.0-rc1")
+
+    // 1. 텐서플로 라이트와 텐서플로 라이트 서포트 라이브러리 의존성 추가
+    implementation ("org.tensorflow:tensorflow-lite:2.4.0")
+    implementation ("org.tensorflow:tensorflow-lite-support:0.2.0")
+    // 추론 성능 개선: GPU 위임
+    implementation ("org.tensorflow:tensorflow-lite-gpu:2.4.0")
 
 }
