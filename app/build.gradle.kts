@@ -52,4 +52,7 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation ("org.tensorflow:tensorflow-lite-support:0.1.0-rc1")
+    implementation ("org.tensorflow:tensorflow-lite-metadata:0.1.0-rc1")
+
 }

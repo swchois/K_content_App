@@ -12,7 +12,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
-import app.ij.mlwithtensorflowlite.ml.Model
+import com.example.imagecamera.R
+// import app.ij.mlwithtensorflowlite.ml.Model
+
+import com.example.imagecamera.ml.Model
 import org.tensorflow.lite.DataType
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
 import java.io.IOException
