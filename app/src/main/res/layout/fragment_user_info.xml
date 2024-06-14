@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserInfoFragment"
+    android:orientation="vertical">
+
+
+    <ImageView
+        android:layout_gravity="center"
+        android:id="@+id/img_user"
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:layout_marginTop="60dp"
+        android:src="@drawable/userimg" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="user 1"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:shadowColor="#8E8E8E"
+            android:shadowRadius="10"
+            android:shadowDy="15" />
+
+        <TextView
+            android:id="@+id/user_cash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="100"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="#1462A6"
+            android:layout_marginStart="30dp"/>
+
+        <ImageView
+            android:id="@+id/cash_icon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/cash"
+            android:layout_marginStart="2dp"/>
+
+    </LinearLayout>
+    <TextView
+        android:id="@+id/userid"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="30sp"
+        android:text="\@uesr 1"
+        android:textSize="15sp"
+        android:shadowColor="#8E8E8E"
+        android:shadowRadius="10"
+        android:shadowDy="1"
+        android:layout_gravity="center"/>
+    <Button
+        android:id="@+id/uploadBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="이미지 업로드"
+        android:background="@drawable/button_border"/>
+
+    <LinearLayout
+        android:id="@+id/enrollInfo"
+        android:background="#EAE7E7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="10dp">
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/email" />
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:shadowColor="#8E8E8E"
+            android:shadowRadius="10"
+            android:shadowDy="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="가입 정보"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/manage_review"
+        android:background="#EAE7E7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="10dp">
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/reviewimg" />
+        <TextView
+            android:layout_marginStart="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:shadowColor="#8E8E8E"
+            android:shadowRadius="10"
+            android:shadowDy="1"
+            android:text="리뷰 관리"/>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/manage_bookmark"
+        android:background="#EAE7E7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="10dp">
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/bookmark" />
+        <TextView
+            android:layout_marginStart="10dp"
+            android:shadowColor="#8E8E8E"
+            android:shadowRadius="10"
+            android:shadowDy="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="즐겨찾기 관리"/>
+
+
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/userReviewList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/buttonsLayout"
+            android:layout_margin="20dp"
+            android:nestedScrollingEnabled="true"/>
+
+        <LinearLayout
+            android:id="@+id/buttonsLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true">
+
+            <Button
+                android:id="@+id/btn1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="검색하기"/>
+
+            <Button
+                android:id="@+id/btn2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="사용자정보"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</LinearLayout>
