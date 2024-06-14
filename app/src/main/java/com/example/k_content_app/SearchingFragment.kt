@@ -2,8 +2,6 @@ package com.example.k_content_app
 
 import android.content.Intent
 import android.graphics.Bitmap
-import android.media.Image
-import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
@@ -29,7 +27,7 @@ class SearchingFragment : Fragment(), ImageModel.ImageSearchCallback {
 
     private var resView: TextView? = null
     private var imageBtn: ImageButton? = null
-    private var imageView : ImageView? = null
+    private var imageView: ImageView? = null
     private var uploadChooser: UploadChooser? = null
 
     private val FILE_NAME = "picture.jpg"
@@ -72,8 +70,7 @@ class SearchingFragment : Fragment(), ImageModel.ImageSearchCallback {
         val view = inflater.inflate(R.layout.fragment_searching, container, false)
         imageView = view.findViewById(R.id.imageView6)
         resView = view.findViewById(R.id.searchcontent)
-        imageBtn = view.findViewById(R.id.imageSearchBtn) // 여기 잠시
-
+        imageBtn = view.findViewById(R.id.imageSearchBtn)
 
         // ImageModel 초기화
         imageModel = ImageModel(requireContext())
@@ -88,12 +85,22 @@ class SearchingFragment : Fragment(), ImageModel.ImageSearchCallback {
                 Log.d("SearchingFragment", "btn2 clicked")
                 it.findNavController().navigate(R.id.action_searchingFragment_to_userInfoFragment)
             }
+        }
+
+        val searchButton = view.findViewById<ImageButton>(R.id.searchbtn)
+        searchButton.setOnClickListener {
+            val searchText = view.findViewById<EditText>(R.id.searchcontent).text.toString()
+            Log.d("Search", "Search button clicked with text: $searchText")
+            val intent = Intent(activity, SearchActivity::class.java)
+            intent.putExtra("searchText", searchText)
+            startActivity(intent)
+        }
+
         // 이미지 검색 버튼
-        val imageSearchButton = view.findViewById<Button>(R.id.imageSearchBtn)
+        val imageSearchButton = view.findViewById<ImageButton>(R.id.imageSearchBtn)
         imageSearchButton.setOnClickListener {
             // 로그 추가
             Log.d("ImageSearch", "Click ImageSearch Button")
-            // UploadChooser().show(parentFragmentManager, "UploadChooser")
             uploadChooser = UploadChooser().apply {
                 addInterface(object : UploadChooser.UploadChooserInterface {
                     override fun cameraOnClick() {
@@ -108,21 +115,6 @@ class SearchingFragment : Fragment(), ImageModel.ImageSearchCallback {
                 })
             }
             uploadChooser!!.show(parentFragmentManager, "UploadChooser")
-        }
-
-        // UserInfoFragment로 이동하는 버튼
-        view.findViewById<Button>(R.id.btn2).setOnClickListener {
-            Log.d("Navigation", "Navigating to UserInfoFragment")
-            it.findNavController().navigate(R.id.action_searchingFragment_to_userInfoFragment)
-        }
-
-        val searchButton = view.findViewById<ImageButton>(R.id.searchbtn)
-        searchButton.setOnClickListener {
-            val searchText = view.findViewById<EditText>(R.id.searchcontent).text.toString()
-            Log.d("Search", "Search button clicked with text: $searchText")
-            val intent = Intent(activity, SearchActivity::class.java)
-            intent.putExtra("searchText", searchText)
-            startActivity(intent)
         }
 
         // 퀴즈설명으로 넘어가는 이미지 버튼
