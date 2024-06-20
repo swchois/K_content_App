@@ -3,36 +3,44 @@
     android:id="@+id/quiz"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/game_description_background"
+    android:background="@drawable/game_description2"
     tools:context=".QuizActivity">
 
     <FrameLayout
         android:id="@+id/questionContainer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="337dp"
+        android:layout_height="258dp"
         android:layout_centerInParent="true"
-        android:layout_margin="16dp">
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp">
 
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/question_background"
-            android:scaleType="centerCrop" />
+            android:layout_width="332dp"
+            android:layout_height="220dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/game_description3" />
 
         <TextView
             android:id="@+id/questionText"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="340dp"
+            android:layout_height="189dp"
             android:layout_gravity="center"
-            android:textSize="24sp"
-            android:textColor="#000"
+            android:layout_marginTop="16dp"
             android:gravity="center"
-            android:padding="16dp" />
+            android:padding="16dp"
+            android:textColor="#000"
+            android:textSize="24sp" />
     </FrameLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="322dp"
+        android:layout_height="41dp"
         android:layout_below="@id/questionContainer"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
@@ -40,17 +48,18 @@
 
         <ImageButton
             android:id="@+id/btnO"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/btn_o"
+            android:layout_width="161dp"
+            android:layout_height="match_parent"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:layout_marginEnd="16dp" />
+            android:src="@drawable/btn_o"
+            android:contentDescription="정답버튼"/>
 
         <ImageButton
             android:id="@+id/btnX"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="163dp"
+            android:layout_height="match_parent"
+            android:background="?attr/selectableItemBackgroundBorderless"
             android:src="@drawable/btn_x"
-            android:background="?attr/selectableItemBackgroundBorderless" />
+            android:contentDescription="오답버튼"/>
     </LinearLayout>
 </RelativeLayout>

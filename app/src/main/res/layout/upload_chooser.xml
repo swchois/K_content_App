@@ -1,25 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:background="#FFFFFF">
 
     <Button
         android:id="@+id/upload_camera"
-        android:layout_width="match_parent"
-        android:layout_height="69dp"
+        android:layout_width="381dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="#B5DFE3"
         android:gravity="center"
         android:text="카메라"
+        android:textColor="@color/white"
+        android:textSize="22sp"
         android:textStyle="bold"
-        />
+        app:layout_constraintBottom_toTopOf="@+id/upload_gallery"
+        app:layout_constraintHeight_default="wrap"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="1.0" />
 
     <Button
         android:id="@+id/upload_gallery"
-        android:layout_width="match_parent"
-        android:layout_height="69dp"
+        android:layout_width="381dp"
+        android:layout_height="60dp"
+        android:backgroundTint="#B5DFE3"
         android:gravity="center"
-        android:text="사진첩"
+        android:text="갤러리"
+        android:textColor="@color/white"
+        android:textSize="22sp"
         android:textStyle="bold"
-        />
+        app:layout_constraintHeight_default="wrap"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/upload_camera"
+        app:layout_constraintWidth_percent="1.0" />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

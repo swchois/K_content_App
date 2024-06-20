@@ -1,0 +1,8 @@
+<!-- res/drawable/circle_background.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <solid android:color="#B5DFE3" /> <!-- 원하는 배경 색상으로 변경 -->
+    <size
+        android:layout_width="178dp"
+        android:layout_height="101dp" />
+</shape>

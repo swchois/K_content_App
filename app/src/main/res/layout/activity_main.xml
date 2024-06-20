@@ -30,9 +30,10 @@
         android:textSize="28sp"
         android:textStyle="bold" />
 
+
     <LinearLayout
-        android:layout_width="322dp"
-        android:layout_height="211dp"
+        android:layout_width="335dp"
+        android:layout_height="212dp"
         android:orientation="vertical">
 
         <EditText
@@ -42,17 +43,19 @@
             android:layout_gravity="center"
             android:layout_marginTop="50dp"
             android:background="@drawable/rounded_edittext_background"
-            android:hint="User ID" />
+            android:hint="User ID"
+            android:paddingLeft="16dp" />
 
         <EditText
             android:id="@+id/pwd_login"
-            android:layout_width="323dp"
-            android:layout_height="58dp"
+            android:layout_width="322dp"
+            android:layout_height="60dp"
             android:layout_gravity="center"
             android:layout_marginTop="5dp"
             android:background="@drawable/rounded_edittext_background"
             android:hint="Password"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:paddingLeft="16dp" />
     </LinearLayout>
 
     <android.widget.Button
@@ -60,7 +63,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:background="@drawable/login_button" />
+        android:background="@drawable/login_button"
+        android:contentDescription="로그인이미지버튼"/>
 
     <ImageView
         android:id="@+id/login_line"
@@ -76,14 +80,16 @@
         android:layout_height="61dp"
         android:layout_marginTop="15dp"
         android:background="@color/white"
-        android:src="@drawable/google_login" />
+        android:src="@drawable/google_login"
+        android:contentDescription="구글로그인버튼"/>
 
     <android.widget.Button
         android:id="@+id/enrollBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:background="@drawable/join_button" />
+        android:background="@drawable/join_button"
+        android:contentDescription="일반회원가입버튼"/>
 
 </LinearLayout>
 

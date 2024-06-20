@@ -15,7 +15,9 @@
         android:roundIcon="@mipmap/kconple_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.K_content_App"
+        android:hardwareAccelerated="true"
         tools:targetApi="31">
+
         <activity
             android:name=".AnnounceActivity"
             android:exported="false" />
@@ -39,7 +41,14 @@
         <activity
             android:name=".DramaDetailActivity"
             android:exported="false" />
-
+        <activity
+            android:name=".MainHomeActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".Nav_mainActivity"
             android:exported="false" />
@@ -78,9 +87,7 @@
                 android:resource="@xml/provider_paths" />
         </provider>
 
-
         <receiver android:name=".MyBroadcastReceiver" />
-
     </application>
 
 </manifest>

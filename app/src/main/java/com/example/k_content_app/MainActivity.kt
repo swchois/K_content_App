@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.navigation.findNavController
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
@@ -142,10 +143,10 @@ class MainActivity : AppCompatActivity() {
 
             userRef.get().addOnSuccessListener { document ->
                 if (document.exists()) {
-                    // 문서가 이미 존재하는 경우, 사용자 데이터 수정하지 않음
+                    // User data already exists, no need to modify
                     Log.d(TAG, "User data already exists!")
                 } else {
-                    // 문서가 존재하지 않는 경우에만 사용자 데이터 작성
+                    // User data does not exist, create new user data
                     val userData = hashMapOf(
                         "uid" to user.uid,
                         "displayname" to user.displayName,
@@ -161,10 +162,10 @@ class MainActivity : AppCompatActivity() {
                         }
                 }
 
-                // 로그인 후 메인 액티비티로 이동
-                val intent = Intent(this, Nav_mainActivity::class.java)
-                startActivity(intent)
-                Log.d(TAG, "User is logged in with uid: ${user.uid}")
+                // Navigation Component's NavController
+                startActivity(Intent(this, MainHomeActivity::class.java))
+                finish() // Close MainActivity
+
             }.addOnFailureListener { e ->
                 Log.w(TAG, "Error getting document", e)
             }
@@ -172,6 +173,7 @@ class MainActivity : AppCompatActivity() {
             Log.d(TAG, "User is not logged in")
         }
     }
+
 
 
 

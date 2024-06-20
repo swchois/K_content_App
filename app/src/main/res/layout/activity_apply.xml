@@ -1,32 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:gravity="center"
+    android:background="@drawable/applypage">
 
-    <TextView
+    <!-- 응모 설명 이미지 -->
+
+    <!-- 응모하기 버튼과 당첨자 발표 버튼을 가로로 배치 -->
+
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="응모하기 한번당 50캐시 차감
-당첨자 발표 시간 외에 응모 가능"
-        android:textSize="24sp"
-        android:layout_gravity="center"
-        android:padding="16dp" />
+        android:layout_marginTop="260dp"
+        android:gravity="center"
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/applyButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="응모하기"
-        android:layout_gravity="center" />
 
-    <Button
-        android:id="@+id/announceButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="당첨자 발표"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp" />
+        <Button
+            android:id="@+id/applyButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:backgroundTint="#FFDD87"
+            android:text="응모하기"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <!-- 당첨자 발표 버튼 -->
+        <Button
+            android:id="@+id/announceButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="10dp"
+            android:backgroundTint="#C4C4C4"
+            android:text="당첨 확인"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
 </LinearLayout>

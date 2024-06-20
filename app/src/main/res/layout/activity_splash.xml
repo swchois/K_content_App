@@ -6,16 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SplashActivity"
-    android:background="@android:color/white">
-
-    <ImageView
-        android:layout_width="459dp"
-        android:layout_height="818dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/start_page" />
-
+    android:background="@drawable/start_page">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

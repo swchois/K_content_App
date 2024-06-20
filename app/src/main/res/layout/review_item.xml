@@ -7,21 +7,23 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="16dp"
-    android:layout_marginTop="5dp"
-    android:background="@drawable/border">
+    android:layout_marginTop="10dp"
+    android:background="@drawable/radius_review">
 
     <ImageView
         android:id="@+id/userprofileImage"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="66dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="8dp"
         android:scaleType="fitXY"
-        android:src="@drawable/userimg"
+        android:src="@drawable/imguser"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <LinearLayout
-        android:layout_marginLeft="100dp"
-        android:layout_width="match_parent"
+        android:layout_width="254dp"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -36,7 +38,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="작성자 : "
+                android:text="닉네임: "
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -44,41 +46,44 @@
                 android:id="@+id/usernameTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="작성자"
+                android:text="닉네임"
                 android:textSize="16sp" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_editor_absoluteX="16dp">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="리뷰 제목 : "
+                android:text="제목: "
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/ReviewTitle"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:text="제목입니다." />
+                android:layout_height="24dp"
+                android:text="제목" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_editor_absoluteX="16dp">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="리뷰 내용 : "
+                android:text="내용: "
                 android:textSize="12sp"
-                android:textStyle="normal"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/commentTextView"

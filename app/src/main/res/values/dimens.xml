@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="frameSize">22dp</dimen>
+    <dimen name="pageMargin">8dp</dimen>
+    <dimen name="offset">14dp</dimen>
+</resources>

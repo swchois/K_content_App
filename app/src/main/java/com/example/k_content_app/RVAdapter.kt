@@ -147,7 +147,7 @@ class RVAdapter(
                         db.collection("bookmark")
                             .add(bookmark)
                             .addOnSuccessListener {
-                                Toast.makeText(context, "북마크에 저장됨", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(context, "북마크에 저장되었습니다.", Toast.LENGTH_SHORT).show()
                                 bookmarkButton.setImageResource(R.drawable.bookmarkon)  // 북마크된 아이콘으로 변경
                             }
                             .addOnFailureListener { e ->

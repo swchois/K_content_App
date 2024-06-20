@@ -5,7 +5,7 @@ import android.location.Address
 import android.location.Geocoder
 import android.net.Uri
 import android.os.Bundle
-import android.widget.Button
+import android.widget.ImageButton
 import android.widget.EditText
 import android.widget.FrameLayout
 import android.widget.ImageView
@@ -54,7 +54,7 @@ class DramaDetailActivity : AppCompatActivity(), OnMapReadyCallback {
         // Initialize Bottom Sheet
         val bottomSheet = findViewById<FrameLayout>(R.id.bottom_sheet)
         bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet).apply {
-            peekHeight = 1500 // 초기 높이를 설정
+            peekHeight = 1000 // 초기 높이를 설정
         }
 
         reviewRecyclerView = findViewById(R.id.reviewRecyclerView)
@@ -71,8 +71,8 @@ class DramaDetailActivity : AppCompatActivity(), OnMapReadyCallback {
         val imageView = findViewById<ImageView>(R.id.imageView)
         val titleTextView = findViewById<TextView>(R.id.titleTextView)
         val locationTextView = findViewById<TextView>(R.id.locationTextView)
-        val navigationButton = findViewById<Button>(R.id.navigationButton)
-        val writeReviewButton = findViewById<Button>(R.id.writeReviewButton)
+        val navigationButton = findViewById<ImageButton>(R.id.navigationButton)
+        val writeReviewButton = findViewById<ImageButton>(R.id.writeReviewButton)
 
         Glide.with(this)
             .load(dramaImage)
@@ -160,7 +160,6 @@ class DramaDetailActivity : AppCompatActivity(), OnMapReadyCallback {
             }
     }
 
-
     private fun getLatitudeLongitude(location: String) {
         val geocoder = Geocoder(this)
         var endPoint: LatLng? = null
@@ -196,9 +195,7 @@ class DramaDetailActivity : AppCompatActivity(), OnMapReadyCallback {
         if (endPoint != null) {
             val url = "nmap://route/public?" +
                     "&dlat=${endPoint.latitude}&dlng=${endPoint.longitude}&dname=${
-                        Uri.encode(
-                            location
-                        )
+                        Uri.encode(location)
                     }" +
                     "&appname=com.example.k_content_app"
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url)).apply {
@@ -250,8 +247,6 @@ class DramaDetailActivity : AppCompatActivity(), OnMapReadyCallback {
             }
     }
 
-
-
     data class Review(
         val username: String,
         val title: String,
@@ -294,7 +289,7 @@ class DramaDetailActivity : AppCompatActivity(), OnMapReadyCallback {
                     .circleCrop() // 이미지 동그랗게 자르기
                     .into(holder.userImageView)
             } else {
-                holder.userImageView.setImageResource(R.drawable.userimg)
+                holder.userImageView.setImageResource(R.drawable.imguser)
             }
         }
 

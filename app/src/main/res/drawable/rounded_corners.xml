@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners android:radius="16dp" /> <!-- 원하는 모서리 반경으로 설정 -->
+    <solid android:color="@android:color/white"/> <!-- 배경 색상 설정 -->
+</shape>

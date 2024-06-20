@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/result"
-    android:background="@drawable/result_background"
+    android:background="@drawable/result_background3"
     tools:context=".ResultActivity">
 
     <LinearLayout

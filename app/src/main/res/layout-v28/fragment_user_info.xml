@@ -6,17 +6,42 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".UserInfoFragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/white">
+
 
     <ImageView
-        android:layout_gravity="center"
-        android:id="@+id/img_user"
-        android:layout_width="wrap_content"
-        android:layout_height="150dp"
-        android:layout_marginTop="60dp"
-        android:src="@drawable/userimg" />
+        android:id="@+id/backbutton"
+        android:layout_width="44dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/backbutton" />
 
-    <!-- v1에서의 username, user_cash, cash_icon 배치를 v28으로 통합 -->
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp">
+
+        <ImageView
+            android:id="@+id/img_user"
+            android:layout_width="263dp"
+            android:layout_height="115dp"
+            android:src="@drawable/imguser" />
+
+        <ImageButton
+            android:id="@+id/uploadBtn"
+            android:layout_width="55dp"
+            android:layout_height="31dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/up_camera"
+            android:text="업로드"
+            android:textSize="9dp" />
+    </FrameLayout>
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -27,31 +52,32 @@
             android:id="@+id/username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:shadowColor="#8E8E8E"
+            android:shadowDy="15"
+            android:shadowRadius="10"
             android:text="user 1"
             android:textSize="30sp"
-            android:textStyle="bold"
-            android:shadowColor="#8E8E8E"
-            android:shadowRadius="10"
-            android:shadowDy="15" />
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/cash_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:src="@drawable/cash_img" />
 
         <TextView
             android:id="@+id/user_cash"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
             android:text="100"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            android:textColor="#1462A6"
-            android:layout_marginStart="30dp"/>
+            android:textColor="#818181"
+            android:textSize="15sp"
+            android:textStyle="bold" />
 
-        <ImageView
-            android:id="@+id/cash_icon"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/cash"
-            android:layout_marginStart="2dp"/>
     </LinearLayout>
-
     <TextView
         android:id="@+id/userid"
         android:gravity="center"
@@ -64,114 +90,150 @@
         android:shadowDy="1"
         android:layout_gravity="center"/>
 
-    <Button
-        android:id="@+id/uploadBtn"
-        android:layout_width="wrap_content"
+    <ImageView
+        android:layout_width="473dp"
         android:layout_height="wrap_content"
-        android:text="이미지 업로드"
-        android:background="@drawable/button_border"/>
+        android:layout_gravity="center"
+        android:src="@drawable/userinfoline" />
 
     <LinearLayout
         android:id="@+id/enrollInfo"
-        android:background="#EAE7E7"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_margin="10dp">
+        android:layout_gravity="center">
 
         <ImageView
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:scaleType="fitXY"
             android:src="@drawable/email" />
+
         <TextView
-            android:layout_marginLeft="10dp"
-            android:shadowColor="#8E8E8E"
-            android:shadowRadius="10"
-            android:shadowDy="1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="가입 정보"/>
+            android:layout_marginLeft="10dp"
+            android:shadowColor="#8E8E8E"
+            android:shadowDy="1"
+            android:shadowRadius="10"
+            android:text="가입 정보" />
+
+
     </LinearLayout>
+
+    <ImageView
+        android:layout_width="473dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/userinfoline" />
 
     <LinearLayout
         android:id="@+id/manage_review"
-        android:background="#EAE7E7"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_margin="10dp">
+        android:layout_gravity="center">
 
         <ImageView
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:scaleType="fitXY"
             android:src="@drawable/reviewimg" />
+
         <TextView
-            android:layout_marginStart="10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
             android:shadowColor="#8E8E8E"
-            android:shadowRadius="10"
             android:shadowDy="1"
-            android:text="리뷰 관리"/>
+            android:shadowRadius="10"
+            android:text="리뷰 관리" />
     </LinearLayout>
+    <ImageView
+        android:layout_width="473dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/userinfoline" />
 
     <LinearLayout
         android:id="@+id/manage_bookmark"
-        android:background="#EAE7E7"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_margin="10dp">
+        android:layout_gravity="center">
 
         <ImageView
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:scaleType="fitXY"
             android:src="@drawable/bookmark" />
+
         <TextView
-            android:layout_marginStart="10dp"
-            android:shadowColor="#8E8E8E"
-            android:shadowRadius="10"
-            android:shadowDy="1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="즐겨찾기 관리"/>
+            android:layout_marginStart="10dp"
+            android:shadowColor="#8E8E8E"
+            android:shadowDy="1"
+            android:shadowRadius="10"
+            android:text="즐겨찾기 관리" />
     </LinearLayout>
-
+    <ImageView
+        android:layout_width="473dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/userinfoline" />
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/userReviewList"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@id/buttonsLayout"
+            android:layout_alignParentTop="true"
             android:layout_margin="20dp"
-            android:nestedScrollingEnabled="true"/>
-
-        <LinearLayout
-            android:id="@+id/buttonsLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_alignParentBottom="true">
-
-            <Button
-                android:id="@+id/btn1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="검색하기"/>
-
-            <Button
-                android:id="@+id/btn2"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="사용자정보"/>
-        </LinearLayout>
+            android:layout_marginTop="20dp"
+            android:nestedScrollingEnabled="true" />
     </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/bottomNavigationBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageButton
+            android:id="@+id/btn2"
+            android:layout_width="0dp"
+            android:layout_height="46dp"
+            android:layout_weight="1"
+            android:background="@android:color/white"
+            android:src="@drawable/nv_user_icon"
+            android:baselineAlignBottom="true"
+            android:contentDescription="마이페이지로 이동" />
+
+        <ImageButton
+            android:id="@+id/btn3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/white"
+            android:src="@drawable/nv_home_icon"
+            android:contentDescription="홈화면으로 이동" />
+
+        <ImageButton
+            android:id="@+id/btn1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/white"
+            android:src="@drawable/nv_search_icon"
+            android:contentDescription="검색화면으로 이동" />
+    </LinearLayout>
+
+
 </LinearLayout>

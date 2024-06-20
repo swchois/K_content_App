@@ -9,13 +9,21 @@
         android:id="@+id/titleEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Title" />
+        android:hint="제목"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:background="@null"
+        android:textColorHint="@color/black"/>
 
     <EditText
         android:id="@+id/contentEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Review"
+        android:hint="내용"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:background="@null"
         android:inputType="textMultiLine"
-        android:minLines="3" />
+        android:minLines="4"
+        android:textColorHint="@color/black"/>
 </LinearLayout>

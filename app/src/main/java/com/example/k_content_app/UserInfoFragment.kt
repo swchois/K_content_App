@@ -11,6 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -70,7 +71,7 @@ class UserInfoFragment : Fragment() {
             showUserInfoDialog()
         }
 
-        view.findViewById<Button>(R.id.uploadBtn)?.setOnClickListener {
+        view.findViewById<ImageButton>(R.id.uploadBtn)?.setOnClickListener {
             val intent = Intent()
             intent.type = "image/*"
             intent.action = Intent.ACTION_GET_CONTENT
@@ -80,8 +81,12 @@ class UserInfoFragment : Fragment() {
             )
         }
 
-        view.findViewById<Button>(R.id.btn1)?.setOnClickListener {
+        view.findViewById<ImageButton>(R.id.btn1)?.setOnClickListener{
             it.findNavController().navigate(R.id.action_userInfoFragment_to_searchingFragment)
+        }
+        view.findViewById<ImageButton>(R.id.btn3)?.setOnClickListener{
+            it.findNavController().navigate(R.id.action_userInfoFragment_to_mainHomeFragment)
+
         }
 
         // Display default view
@@ -156,7 +161,7 @@ class UserInfoFragment : Fragment() {
                         val title = document.getString("title") ?: ""
                         val content = document.getString("content") ?: ""
                         val displayName = document.getString("displayName") ?: ""
-                        val img = document.getString("img") ?: "@drawable/userimg"
+                        val img = document.getString("img") ?: "@drawable/img user"
                         reviews.add(Review(displayName, title, content, img))
                     }
                     reviewAdapter.updateReviews(reviews)
@@ -204,17 +209,17 @@ class UserInfoFragment : Fragment() {
                                     .into(it)
                             }
                         } else {
-                            imageView?.setImageResource(R.drawable.userimg)
+                            imageView?.setImageResource(R.drawable.imguser)
                         }
                     } else {
-                        imageView?.setImageResource(R.drawable.userimg)
+                        imageView?.setImageResource(R.drawable.imguser)
                     }
                 }
                 .addOnFailureListener { exception ->
-                    imageView?.setImageResource(R.drawable.userimg)
+                    imageView?.setImageResource(R.drawable.imguser)
                 }
         } else {
-            imageView?.setImageResource(R.drawable.userimg)
+            imageView?.setImageResource(R.drawable.imguser)
         }
     }
 
@@ -309,7 +314,7 @@ class UserInfoFragment : Fragment() {
                     .circleCrop()
                     .into(holder.userImageView)
             } else {
-                holder.userImageView.setImageResource(R.drawable.userimg)
+                holder.userImageView.setImageResource(R.drawable.imguser)
             }
         }
 

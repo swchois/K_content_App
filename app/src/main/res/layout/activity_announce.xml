@@ -4,23 +4,50 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:gravity="center"
+    android:background="@color/announce_background">
 
     <TextView
-        android:id="@+id/announceTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="당첨자 발표"
-        android:textSize="24sp"
-        android:layout_gravity="center"
-        android:padding="16dp" />
-
-    <TextView
-        android:id="@+id/winnerText"
+        android:id="@+id/winnerMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="당첨자를 발표합니다..."
         android:textSize="18sp"
         android:layout_gravity="center"
         android:padding="16dp" />
+
+    <ImageView
+        android:id="@+id/winnerImage"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:layout_marginTop="16dp"
+        android:scaleType="centerCrop" />
+
+    <TextView
+        android:id="@+id/winnerDisplayName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:layout_marginTop="8dp" />
+
+    <ImageView
+        android:id="@+id/giftIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:layout_marginTop="16dp" />
+
+    <ImageView
+        android:id="@+id/failIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:layout_marginTop="16dp" />
 </LinearLayout>
